@@ -5,9 +5,15 @@ const chatMessages = document.querySelector('.chat-messages');
 
 // Gtet UserName and room from url
 
-const {userName,room} = Qs.parse(location.search,{
-  igboreQueryPrefix: true
+const {username,room} = Qs.parse(location.search,{
+  ignoreQueryPrefix: true
 });
+
+
+
+socket.emit('joinRoom',{username,room});
+
+
 
 // Message from server
 socket.on('message',message =>{
