@@ -21,8 +21,13 @@ io.on("connection", (socket) => {
 
   // Runs when client disconnect
   socket.on('disconnect',()=>{
-    io.emit('meesage','A user has left the chat')
-  })
+    io.emit('meesage','A user has left the chat');
+  });
+
+  // Listen For chat messages 
+  socket.on('chatMessage', msg => {
+    io.emit('message',msg);
+  });  
 });
 
 const PORT = process.env.PORT || 8089;
