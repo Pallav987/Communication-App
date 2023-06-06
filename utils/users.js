@@ -18,14 +18,14 @@ function getCurrentUser(id){
 function userLeave(id){
     const index = users.findIndex(user => user.id === id);
     if(index !== -1){
-        return users.splice(index, 1);
+        return users.splice(index, 1)[0];
     }
 
 }
 
 // To Get room users
 
-function getRoomUers(room){
+function getRoomUsers(room){
     return users.filter(user => user.room === room);
 }
 
@@ -34,5 +34,5 @@ module.exports = {
     userJoin: userJoin,
     getCurrentUser: getCurrentUser,
     userLeave : userLeave,
-    getRoomUers   : getRoomUers,
+    getRoomUsers   : getRoomUsers,
 }
